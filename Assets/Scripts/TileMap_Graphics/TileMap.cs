@@ -10,6 +10,7 @@ public class TileMap : MonoBehaviour {
 	public int columns = 100;
 	public int rows = 50;
 	public float tileSize = 1.0f;
+	public int numberOfRooms = 10;
 
 	public Texture2D terrainTiles;
 	public int tileResolution;
@@ -35,7 +36,7 @@ public class TileMap : MonoBehaviour {
 	}
 
 	void BuildTexture() {
-		DTileMap map = new DTileMap(columns, rows);
+		DTileMap map = new DTileMap(columns, rows, numberOfRooms);
 
 		int textureWidth = columns * tileResolution;
 		int textureHeight = rows * tileResolution;

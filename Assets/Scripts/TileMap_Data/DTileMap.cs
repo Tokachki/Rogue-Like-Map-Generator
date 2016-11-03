@@ -48,15 +48,18 @@ public class DTileMap {
 
 	List<DRoom> rooms;
 
+	int numberOfRooms;
+
 	// 0 = Unknown
 	// 1 = Floor
 	// 2 = Wall
 	// 3 = Stone
 
-	public DTileMap(int sizeX, int sizeY) {
+	public DTileMap(int sizeX, int sizeY, int numberOfRooms = 10) {
 		DRoom r;
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
+		this.numberOfRooms = numberOfRooms;
 
 		mapData = new int[sizeX, sizeY];
 
@@ -68,12 +71,13 @@ public class DTileMap {
 
 		rooms = new List<DRoom> ();
 
-		int maxFails = 10;
+		// int maxFails = 10;
+		int maxFails = numberOfRooms;
 
 		// rooms.Count < # of rooms
-		while (rooms.Count < 20) {
-			int rsx = Random.Range (8, 16);		// Room Size x
-			int rsy = Random.Range (8, 16);		// Room Size y
+		while (rooms.Count < numberOfRooms) {
+			int rsx = Random.Range (8, 10);		// Room Size x
+			int rsy = Random.Range (8, 10);		// Room Size y
 
 			r = new DRoom ();
 			r.left = Random.Range (0, sizeX - rsx);
